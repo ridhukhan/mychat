@@ -11,6 +11,7 @@ api.interceptors.request.use(
         if (token) {
             config.headers["Authorization"] = `Bearer ${token}`;
         }
+        // refreshToken header এ পাঠাও
         const refreshToken = localStorage.getItem("refreshToken");
         if (refreshToken) {
             config.headers["x-refresh-token"] = refreshToken;

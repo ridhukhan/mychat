@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL: "https://mychat-q3ya.onrender.com/api",
+    baseURL: "https://authentication-tz5b.onrender.com/api",
     withCredentials: true,
 });
 
@@ -11,6 +11,7 @@ api.interceptors.request.use(
         if (token) {
             config.headers["Authorization"] = `Bearer ${token}`;
         }
+        // refreshToken header এ পাঠাও
         const refreshToken = localStorage.getItem("refreshToken");
         if (refreshToken) {
             config.headers["x-refresh-token"] = refreshToken;
